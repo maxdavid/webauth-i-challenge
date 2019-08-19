@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const { restricted } = require('../middleware');
 const Projects = require('./projectsModel.js');
+
+router.use('/', restricted);
 
 router.get('/', async (req, res) => {
   try {
